@@ -1,0 +1,62 @@
+MatrixOperations Class:
+
+This class provides methods for performing operations on matrices.
+
+Methods:
+- __init__(matrix_count, matrices): Constructor method for the MatrixOperations class. Initializes the matrix count and matrices attributes.
+- print_matrix(matrix): Method to print the given matrix.
+- matrix_multiply(): Method to perform matrix multiplication.
+- create_matrix(matrix_count, operation): Method to create matrices based on user input.
+- find_rank(matrix): Method to find the rank of a matrix.
+- find_determinant(matrix): Method to find the determinant of a matrix.
+- matrix_sum(): Method to perform matrix addition.
+- matrix_substract(): Method to perform matrix subtraction.
+
+VectorOperations Class:
+
+This class provides methods for performing operations on vectors.
+
+Methods:
+- __init__(): Constructor method for the VectorOperations class.
+- create_vector(vector_str): Method to create a vector from a string input.
+- vector_multiply(first_vector_str, second_vector_str): Method to perform vector multiplication.
+- vector_module(single_vector_str): Method to calculate the module (length) of a vector.
+
+Main Loop:
+
+This loop enables users to choose between matrix operations, vector operations, or quitting the program. 
+Depending on the chosen branch, the user is prompted to select a specific operation.
+
+
+Matrix Multiplication:
+
+Matrix multiplication is a binary operation that produces a matrix from two matrices. Here's how the matrix_multiply() method works:
+
+1. The method matrix_multiply() assumes that two matrices matrix_a and matrix_b are already initialized.
+2. It creates an empty result matrix matrix_c with dimensions corresponding to the number of rows of matrix_a and the number of columns of matrix_b.
+3. It iterates through the rows of matrix_a and the columns of matrix_b, performing the dot product of each row of matrix_a with each column of matrix_b.
+4. The dot product is computed by summing the pairwise products of the corresponding elements of the row and column vectors.
+5. The resulting scalar value is stored in the corresponding position of the result matrix matrix_c.
+6. After all elements of matrix_c are computed, it is returned as the result of the matrix multiplication operation.
+
+Matrix Rank Calculation:
+
+The rank of a matrix is the maximum number of linearly independent row (or column) vectors in the matrix. Here's how the find_rank(matrix) method works:
+
+1. The method find_rank(matrix) takes a matrix as input.
+2. It initializes variables for the number of rows and columns in the matrix and sets the initial rank to 0.
+3. The method iterates through each row of the matrix, looking for the first non-zero element in each row (starting from the leftmost column).
+4. If a non-zero element is found, it increments the rank by 1 and performs row operations to eliminate non-zero elements below it in the same column.
+5. The process continues until all rows have been examined or until the last row is reached.
+6. The final rank of the matrix is returned.
+
+Determinant Calculation:
+
+The determinant of a square matrix is a scalar value that represents the volume of the parallelepiped spanned by the column vectors of the matrix. Here's how the find_determinant(matrix) method works:
+
+1. The method find_determinant(matrix) takes a square matrix as input.
+2. If the matrix is not square, it prints an error message and prompts the user to enter a square matrix.
+3. If the matrix is 2x2, the determinant is calculated directly using the formula ad - bc, where a, b, c, and d are the elements of the matrix.
+4. If the matrix is larger than 2x2, the method recursively calculates the determinant using the Laplace expansion along the first row or column.
+5. The recursion continues until the base case of a 2x2 matrix is reached, and the determinants of the submatrices are calculated.
+6. The determinant of the original matrix is computed by summing the products of the elements of the first row (or column) with their corresponding minors, each multiplied by the appropriate sign (-1)^j.
