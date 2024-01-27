@@ -20,10 +20,7 @@ class MatrixOperations:
                 for k in range(len(matrix_b)):
                     matrix_c[i][j] += matrix_a[i][k] * matrix_b[k][j]
 
-    # ... (rest of the method)
-
-
-        # Вывод матриц
+    
         print("\nMatrix A:")
         self.print_matrix(matrix_a)
         print()
@@ -89,11 +86,11 @@ class MatrixOperations:
                         matrix_a = [[0] * int(first_matrix_size_substring[1]) for i in range(int(first_matrix_size_substring[0]))]
                         matrix_b = [[0] * int(second_matrix_size_substring[1]) for i in range(int(second_matrix_size_substring[0]))]
 
-                        for row in range(int(first_matrix_size_substring[0])): # Во внешнем цикле кол-вом итераций будет кол-во строк матрицы А
-                            for col in range(int(first_matrix_size_substring[1])): # а во внутреннем кол-во ее столбцов
+                        for row in range(int(first_matrix_size_substring[0])): 
+                            for col in range(int(first_matrix_size_substring[1])):
 
                                 matrix_value = int(input(f'Enter the value in {row+1} row and {col+1} column for matrix A: '))
-                                matrix_a[row][col] = matrix_value # Тут присваеваем значение, который вводит пользователь
+                                matrix_a[row][col] = matrix_value 
 
                                 # for i in range(len(matrix_a)):
                                 #     print()
@@ -108,11 +105,11 @@ class MatrixOperations:
 
 
 
-                        for row in range(int(second_matrix_size_substring[0])): # Во внешнем цикле кол-вом итераций будет кол-во строк матрицы А
-                            for col in range(int(second_matrix_size_substring[1])): # а во внутреннем кол-во ее столбцов
+                        for row in range(int(second_matrix_size_substring[0])): 
+                            for col in range(int(second_matrix_size_substring[1])): 
 
                                 matrix_value = int(input(f'Enter the value in {row+1} row and {col+1} column for matrix B: '))
-                                matrix_b[row][col] = matrix_value # Тут присваеваем значение, который вводит пользователь
+                                matrix_b[row][col] = matrix_value 
 
                                 # for i in range(len(matrix_b)):
                                 #     print()
@@ -125,11 +122,11 @@ class MatrixOperations:
                     matrix_a = [[0] * int(first_matrix_size_substring[1]) for i in range(int(first_matrix_size_substring[0]))]
                     matrix_b = [[0] * int(second_matrix_size_substring[1]) for i in range(int(second_matrix_size_substring[0]))]
 
-                    for row in range(int(first_matrix_size_substring[0])): # Во внешнем цикле кол-вом итераций будет кол-во строк матрицы А
-                        for col in range(int(first_matrix_size_substring[1])): # а во внутреннем кол-во ее столбцов
+                    for row in range(int(first_matrix_size_substring[0])): 
+                        for col in range(int(first_matrix_size_substring[1])): 
 
                             matrix_value = int(input(f'Enter the value in {row+1} row and {col+1} column for matrix A: '))
-                            matrix_a[row][col] = matrix_value # Тут присваеваем значение, который вводит пользователь
+                            matrix_a[row][col] = matrix_value 
 
                             # for i in range(len(matrix_a)):
                             #     print()
@@ -144,11 +141,11 @@ class MatrixOperations:
 
 
 
-                    for row in range(int(second_matrix_size_substring[0])): # Во внешнем цикле кол-вом итераций будет кол-во строк матрицы А
-                        for col in range(int(second_matrix_size_substring[1])): # а во внутреннем кол-во ее столбцов
+                    for row in range(int(second_matrix_size_substring[0])): 
+                        for col in range(int(second_matrix_size_substring[1])): 
 
                             matrix_value = int(input(f'Enter the value in {row+1} row and {col+1} column for matrix B: '))
-                            matrix_b[row][col] = matrix_value # Тут присваеваем значение, который вводит пользователь
+                            matrix_b[row][col] = matrix_value 
 
                             # for i in range(len(matrix_b)):
                             #     print()
@@ -177,24 +174,24 @@ class MatrixOperations:
             if pivot_column >= num_cols:
                 break
 
-            # Пошук ненульового елемента в поточному стовбці
+            
             non_zero_row = pivot_row
             while non_zero_row < num_rows and matrix[non_zero_row][pivot_column] == 0:
                 non_zero_row += 1
 
-            # Якщо знайдено ненульовий елемент
+            
             if non_zero_row < num_rows:
-                # Збільшення рангу
+                
                 rank += 1
 
-                # Обмін рядків для роботи з ненульовим елементом на головній діагоналі
+                
                 matrix[pivot_row], matrix[non_zero_row] = matrix[non_zero_row], matrix[pivot_row]
 
-                # Нормалізація рядка, щоб поточний елемент став 1
+                
                 pivot_element = matrix[pivot_row][pivot_column]
                 matrix[pivot_row] = [elem / pivot_element for elem in matrix[pivot_row]]
 
-                # Обнулення всіх інших елементів у поточному стовбці
+                
                 for other_row in range(num_rows):
                     if other_row != pivot_row:
                         factor = matrix[other_row][pivot_column]
